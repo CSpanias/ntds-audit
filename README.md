@@ -86,6 +86,7 @@ ntds-audit -n company.local.ntds -p hashcat.potfile
 
 # Full Workflow
 ntds-audit -n company.local.ntds -b bloodhound.zip -p hashcat.potfile -f company,test
+```
 
 ## Example Output
 

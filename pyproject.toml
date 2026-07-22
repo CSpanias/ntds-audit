@@ -1,0 +1,9 @@
+[project]
+name = "ntds-audit"
+version = "0.1.0"
+description = "NTDS database organiser"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+ntds-audit = "ntds_audit:main"

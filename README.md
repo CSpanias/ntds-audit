@@ -2,7 +2,9 @@
 
 A Python-based tool designed to make Active Directory password audits more efficient.
 
-Developed as a Proof of Concept to accompany [Password Audits Part 2: Hash Organisation](https://mollysec.com/posts/password-audits-part-2/). It automates the post-processing of `secretsdump.py` output and combines NTDS data with BloodHound and Hashcat artefacts and produces clean datasets that are easier to review, crack, and report on.
+Developed as a Proof of Concept to accompany [Password Audits Part 2: Hash Organisation](https://mollysec.com/posts/password-audits-part-2/).
+
+It automates the post-processing of `secretsdump.py` output and combines NTDS data with BloodHound and Hashcat artefacts and produces clean datasets that are easier to review, crack, and report on.
 
 ## Installation
 
@@ -46,7 +48,7 @@ The tool follows the same workflow typically used during an Active Directory pas
 
 ### NTDS Processing
 
-* Parse secretsdump.py NTDS output
+* Parse `secretsdump.py` NTDS output
 * Separate enabled and disabled accounts
 * Identify machine accounts
 * Filter testing accounts
@@ -58,44 +60,43 @@ The tool follows the same workflow typically used during an Active Directory pas
 * Parse BloodHound ZIP exports directly
 * Automatically extract Domain Admins
 * Automatically extract domain password policy
-* Remove testing accounts from privileged account datasets
+* Remove testing accounts from generated datasets
 
 ### Password Mapping
 
 * Parse Hashcat potfiles
 * Map recovered passwords back to users
-* Generate clean username:password datasets
-* Prepare data for reporting and analysis
+* Generate clean `username:password` datasets
 
 ## Usage
 
 ```bash
 # Organise NTDS
-ntds-audit -n company.local.ntds
+ntds-audit -n mollysec.com.ntds
 
 # Filter Testing Accounts
-ntds-audit -n company.local.ntds -f company,test
+ntds-audit -n mollysec.com.ntds -f testing-acc-1,testing-acc-2
 
 # Include BloodHound Data
-ntds-audit -n company.local.ntds -b bloodhound.zip
+ntds-audit -n mollysec.com.ntds -b bloodhound.zip
 
 # Map Recovered Passwords
-ntds-audit -n company.local.ntds -p hashcat.potfile
+ntds-audit -n mollysec.com.ntds -p hashcat.potfile
 
 # Full Workflow
-ntds-audit -n company.local.ntds -b bloodhound.zip -p hashcat.potfile -f company,test
+ntds-audit -n mollysec.com.ntds -b bloodhound.zip -p hashcat.potfile -f testing-acc-1,testing-acc-2
 ```
 
 ## Example Output
 
 ```bash
-ntds-audit -n company.local.ntds -b bloodhound.zip -p company.potfile -f company,test
+ntds-audit -n mollysec.com.ntds -b bloodhound.zip -p company.potfile -f testing-acc-1,testing-acc-2
 
 [*] NTDS Audit v1.0
 
 [!] Filtered Accounts (2)
-    - COMPANY\company_user
-    - COMPANY\company-admin
+    - MOLLYSEC\testing-acc-1
+    - MOLLYSEC\testing-acc-2
 
 [+] Enabled Accounts  : 422
 [+] Disabled Accounts : 39
@@ -138,7 +139,7 @@ ntds-audit -n company.local.ntds -b bloodhound.zip -p company.potfile -f company
 ### Example Domain Policy
 
 ```bash
-Domain: COMPANY.LOCAL
+Domain: MOLLYSEC.COM
 
 Minimum Password Length : 14
 Password History Length : 24

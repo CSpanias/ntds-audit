@@ -92,7 +92,7 @@ ntds-organiser -n mollysec.com.ntds -b bloodhound.zip -p hashcat.potfile -f test
 ```bash
 ntds-organiser -n mollysec.com.ntds -b bloodhound.zip -p company.potfile -f testing-acc-1,testing-acc-2
 
-[*] NTDS Audit v1.0
+[*] NTDS Organiser v1.0
 
 [!] Filtered Accounts (2)
     - MOLLYSEC\testing-acc-1

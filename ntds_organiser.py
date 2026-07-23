@@ -314,7 +314,7 @@ def map_passwords(users, potfile):
 
 def main():
 
-    parser = argparse.ArgumentParser(description="NTDS Audit")
+    parser = argparse.ArgumentParser(description="NTDS Organiser")
 
     parser.add_argument("-n", "--ntds", required=True, help="NTDS dump file")
     parser.add_argument("-o", "--output", default="ntds-organiser", help="Output directory")
@@ -327,7 +327,7 @@ def main():
     output_dir = Path(args.output)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    info(f"NTDS Audit v{VERSION}")
+    info(f"NTDS Organiser v{VERSION}")
 
     entries = parse_ntds_file(args.ntds)
     enabled = get_enabled(entries)

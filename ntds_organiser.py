@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ###############################################################################
-# NTDS Audit v1.0
+# NTDS Organiser v1.0
 #
 # Author: Charalampos Spanias (mollysec)
 #
@@ -317,7 +317,7 @@ def main():
     parser = argparse.ArgumentParser(description="NTDS Audit")
 
     parser.add_argument("-n", "--ntds", required=True, help="NTDS dump file")
-    parser.add_argument("-o", "--output", default="ntds-audit", help="Output directory")
+    parser.add_argument("-o", "--output", default="ntds-organiser", help="Output directory")
     parser.add_argument("-f", "--filter", help="Testing account filter (e.g. mollysec)")
     parser.add_argument("-b", "--bloodhound", help="BloodHound zip file")
     parser.add_argument("-p", "--potfile", help="Hashcat potfile")

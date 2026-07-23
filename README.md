@@ -1,4 +1,4 @@
-# NTDS-Audit
+# ntds-organiser
 
 A Python-based tool designed to make Active Directory password audits more efficient.
 
@@ -14,14 +14,14 @@ Recommended (uv):
 # Install UV
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Install ntds-audit via UV
-uv tool install git+https://github.com/CSpanias/ntds-audit
+# Install ntds-organiser via UV
+uv tool install git+https://github.com/CSpanias/ntds-organiser
 
 # Verify installation
-ntds-audit -h
+ntds-organiser -h
 
 # Update
-uv tool upgrade ntds-audit
+uv tool upgrade ntds-organiser
 ```
 
 Clone locally:
@@ -30,16 +30,16 @@ Clone locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/CSpanias/ntds-audit /opt/ntds-audit
+git clone https://github.com/CSpanias/ntds-organiser /opt/ntds-organiser
 
 # Make the script executable
-chmod +x /opt/ntds-audit/ntds_audit.py
+chmod +x /opt/ntds-organiser/ntds_audit.py
 
 # Create a symbolic link
-sudo ln -s /opt/ntds-audit/ntds_audit.py /usr/local/bin/ntds-audit
+sudo ln -s /opt/ntds-organiser/ntds_audit.py /usr/local/bin/ntds-organiser
 
 # Verify installation
-ntds-audit -h
+ntds-organiser -h
 ```
 
 ## Features
@@ -72,25 +72,25 @@ The tool follows the same workflow typically used during an Active Directory pas
 
 ```bash
 # Organise NTDS
-ntds-audit -n mollysec.com.ntds
+ntds-organiser -n mollysec.com.ntds
 
 # Filter Testing Accounts
-ntds-audit -n mollysec.com.ntds -f testing-acc-1,testing-acc-2
+ntds-organiser -n mollysec.com.ntds -f testing-acc-1,testing-acc-2
 
 # Include BloodHound Data
-ntds-audit -n mollysec.com.ntds -b bloodhound.zip
+ntds-organiser -n mollysec.com.ntds -b bloodhound.zip
 
 # Map Recovered Passwords
-ntds-audit -n mollysec.com.ntds -p hashcat.potfile
+ntds-organiser -n mollysec.com.ntds -p hashcat.potfile
 
 # Full Workflow
-ntds-audit -n mollysec.com.ntds -b bloodhound.zip -p hashcat.potfile -f testing-acc-1,testing-acc-2
+ntds-organiser -n mollysec.com.ntds -b bloodhound.zip -p hashcat.potfile -f testing-acc-1,testing-acc-2
 ```
 
 ## Example Output
 
 ```bash
-ntds-audit -n mollysec.com.ntds -b bloodhound.zip -p company.potfile -f testing-acc-1,testing-acc-2
+ntds-organiser -n mollysec.com.ntds -b bloodhound.zip -p company.potfile -f testing-acc-1,testing-acc-2
 
 [*] NTDS Audit v1.0
 
@@ -107,7 +107,7 @@ ntds-audit -n mollysec.com.ntds -b bloodhound.zip -p company.potfile -f testing-
 [+] Domain Admins     : 7
 [+] Mapped Passwords  : 126
 
-[+] Output Directory  : ntds-audit
+[+] Output Directory  : ntds-organiser
 ```
 
 ## Generated Files

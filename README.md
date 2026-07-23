@@ -2,9 +2,7 @@
 
 A Python-based tool designed to make Active Directory password audits more efficient.
 
-Developed as a practical companion to the Password Audits series on https://mollysec.com, it automates the post-processing of `secretsdump.py` output and combines NTDS data with BloodHound and Hashcat artefacts.
-
-It transforms raw NTDS data into clean datasets that are easier to review, crack, and report on.
+Developed as a Proof of Concept to accompany [Password Audits Part 2: Hash Organisation](https://mollysec.com/posts/password-audits-part-2/). It automates the post-processing of `secretsdump.py` output and combines NTDS data with BloodHound and Hashcat artefacts and produces clean datasets that are easier to review, crack, and report on.
 
 ## Installation
 
